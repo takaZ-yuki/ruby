@@ -1,0 +1,42 @@
+【Ruby インストール方法】
+１．choco install ruby
+２．choco install msys2
+３．cd C:\tools\msys64
+４．msys2_shell.cmdを起動
+５．pacman -Sg
+６．pacman -Syuu
+７．pacman -S base-devel mingw-w64-i686-toolchain mingw-w64-x86_64-toolchain
+８．境変数PATHにC:\tools\msys64\mingw64\binを追加
+９．以下のgemをBundlerを利用してインストールする
+
+************************************
+# 補完用
+gem "solargraph"
+
+# 文法チェック
+gem "ruby-lint"
+
+# デバッグ用
+gem "ruby-debug-ide"
+gem "debase"
+************************************
+
+１０．VSCodeに以下の拡張機能を追加する
+　・Ruby Solargraph
+　・Ruby
+
+１１．VSCodeに以下の設定を追加する
+    "solargraph.commandPath": "C:\\tools\\ruby26\\bin\\solargraph.bat"
+
+※データベースの更新が失敗する場合
+以下のファイルを削除し、コマンドプロンプトを再起動してください。（要管理者権限）
+C:\msys64\var\lib\pacman\db.lck
+
+環境構築 参考URL：https://gabekore.org/windows-ruby-rails-msys2
+Ruby デバッグ方法 参考URL：https://qiita.com/naoto_koyama/items/313e45a0f26e1e641728
+Bundlerについて 参考URL：https://qiita.com/iguchi1124/items/3c17e1275b9bee4138d7
+
+
+
+
+
